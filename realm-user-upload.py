@@ -55,7 +55,7 @@ def getListUsername() -> list:
         raise Exception("User data folder not found!")
     list_files = os.listdir("data/users")
     if list_files:
-        return [file.split(".")[0] for file in list_files if file.endswith("json")]
+        return [file.split(".jso")[0] for file in list_files if file.endswith("json")]
     else:
         return []
 
@@ -248,4 +248,3 @@ if __name__=='__main__':
     print("="*40)
 
     print("Finished!")
-
