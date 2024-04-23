@@ -159,7 +159,7 @@ def createGroup(group_dict={}) -> str:
                     print(f"-> Adding group to role {role['name']}")
                     keycloak_admin.assign_group_realm_roles(group, role)
     except KeycloakPostError:
-        print(f"Group {group_dict['name']} already exists. Please delete this group and run again!")
+        print(f"Group {group_dict['name']} already exists; will not be altered or addedn!")
     except Exception as e:
         print("error when assign roles to group {}!\n".format(group_dict["name"]), str(e))
 
