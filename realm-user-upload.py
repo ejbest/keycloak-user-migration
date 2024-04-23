@@ -8,6 +8,7 @@ from keycloak.exceptions import KeycloakGetError, KeycloakPostError
 
 OLD_REALM_NAME = ""
 NEW_REALM_NAME = sys.argv[1]
+FILENAME = sys.argv[2]
 
 # Init Connection
 config = configparser.ConfigParser()
@@ -25,8 +26,10 @@ def extractData():
     global OLD_REALM_NAME
     if not os.path.exists("data"):
         os.mkdir("data")
+    
+       
     for file in os.listdir():
-        if file.startswith("realm_") and file.endswith(".zip"):
+        if file.startswith(FILENAME) and file.endswith(".zip"):
             OLD_REALM_NAME = file[6:-4]
             print(f"Found data file {file} of realm {OLD_REALM_NAME}")
             with zipfile.ZipFile(file, 'r') as zip_ref:
