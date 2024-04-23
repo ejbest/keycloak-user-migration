@@ -15,4 +15,4 @@ keycloak_admin = KeycloakAdmin(
 
 list_realms = keycloak_admin.get_realms()
 for realm in list_realms:
-    print(realm['name'])
+    print(realm['realm'])
